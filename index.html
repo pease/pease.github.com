@@ -25,27 +25,46 @@
     </div>
     <div class='container' id='content'>
       <header>
-  <div class="container">
-    <h1>
-      pease
-    </h1>
-    <p>
-        <span>pe</span>ase
-        <span>a</span>cceptance testing
-        <span>s</span>pock
-        <span>e</span>xtension
-    </p>
+  <div class='container'>
+    <h1>Pease</h1>
+    <p>Pease acceptance testing spock extension</p>
   </div>
 </header>
-<div class="container">
-  <section id="code">
-    <div class="page-header">
-      <h1>Example</h1>
+<section>
+  <div class='row'>
+    <div class='span8 columns'>
+      <h2>Introduction</h2>
+      <p>Pease is a compiler that creates <a href="http://spockframework.org/">Spock</a> tests from
+      <a href="https://github.com/cucumber/gherkin/">Gherkin</a> specifications.
+      With Pease you are able to separate your requirements and your test code and still access the full power of the
+      Spock framework.</p>
+      
+      <p>Since Pease uses the well known <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin DSL</a>, that is also
+      used by <a href="http://cukes.info">Cucumber</a>, it enables your whole team to participate in your software development
+      process.
+      You can use Pease to do Acceptance Test-driven development (<a href="https://en.wikipedia.org/wiki/Test-driven_development#Development_style">ATDD</a>) on the JVM.</p>
     </div>
-    <div class="row">
-      <div class="span8 columns">
-        <h3>Specification in Gherkin <small>a business readable DSL</small></h3>
-<div class="highlight"><pre><code class="cucumber"><span class="k">Feature:</span><span class="nf"> Addition</span>
+    <div class='span8 columns'>
+      <h2>News</h2>
+      <ul id='posts'>
+        
+          <li><span>07 Sep 2011</span><a href="/2011/09/07/upcoming-release.html">Upcoming release</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+<section id='code'>
+  <div class='page-header'>
+    <h2>Example</h2>
+  </div>
+  <div class='row'>
+    <div class='span8 columns'>
+      <h3>
+        Specification in Gherkin
+        <small>a business readable DSL</small>
+      </h3>
+      <div class="highlight"><pre><code class="gherkin"><span class="k">Feature:</span><span class="nf"> Addition</span>
 <span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Add two numbers</span>
 <span class="k">    Given </span><span class="nf">I have entered </span><span class="s">50</span><span class="nf"> into the calculator</span>
 <span class="nf">    </span><span class="k">And </span><span class="nf">I have entered </span><span class="s">70</span><span class="nf"> into the calculator</span>
@@ -54,18 +73,19 @@
 </code></pre>
 </div>
 
-      </div>
-
-      <div class="span8 columns">
-        <h3>Step definitions in Groovy <small>with Spock code inside the closures</small></h3>
-
-<div class="highlight"><pre><code class="java"><span class="n">Before</span> <span class="o">{</span>
+    </div>
+    <div class='span8 columns'>
+      <h3>
+        Step definitions in Groovy
+        <small>with Spock code inside the closures</small>
+      </h3>
+      <div class="highlight"><pre><code class="java"><span class="n">Before</span> <span class="o">{</span>
   <span class="n">def</span> <span class="n">calc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="o">()</span>
 <span class="o">}</span>
 
 <span class="n">Given</span><span class="o">(~/</span><span class="n">I</span> <span class="n">have</span> <span class="n">entered</span> <span class="o">(.*)</span> <span class="n">into</span> <span class="n">the</span> <span class="n">calculator</span><span class="o">/)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">-&gt;</span>
   <span class="n">calc</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">n</span> <span class="n">as</span> <span class="kt">double</span><span class="o">)</span>
-<span class="o">}</span>          
+<span class="o">}</span>
 
 <span class="n">When</span><span class="o">(~/</span><span class="n">I</span> <span class="n">press</span> <span class="n">add</span><span class="o">/)</span> <span class="o">{</span>
   <span class="n">calc</span><span class="o">.</span><span class="na">add</span><span class="o">()</span>
@@ -78,10 +98,16 @@
 </div>
 
     </div>
-    <div class="row">
-      <div class="span16 columns">
-      <h3>Generated spock test <small>either you get this or a compiled JUnit test class</small></h3>
-<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">Addition</span> <span class="kd">extends</span> <span class="n">spock</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Specification</span> <span class="o">{</span>
+  </div>
+  <div class='row'>
+    <div class='span16 columns'>
+      <h3>
+        Generated spock test
+        <small>either you get this or a compiled JUnit test class</small>
+      </h3>
+      <p>This code is the result of the compilation process. Normally you do not see this test and</p>
+      
+      <p><div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">Addition</span> <span class="kd">extends</span> <span class="n">spock</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Specification</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="s">&quot;add two numbers&quot;</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">def</span> <span class="n">calc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="o">()</span>
 
@@ -100,12 +126,63 @@
 <span class="o">}</span>
 </code></pre>
 </div>
+</p>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='columns span16'>
+      <h3>
+        How does it work?
+        <small>technical details (for those who care)</small>
+      </h3>
+      <p>Here is a code snippet that demonstrates the behavior of Pease while generating the above Spock test.
+      In a real world scenario you will not have to deal with this kind of technical details.
+      This demonstration is here to show you what kind of magic is involved.</p>
+      
+      <p><strong>Note:</strong> The maven repository is not live yet!</p>
+      <div class="highlight"><pre><code class="java"><span class="nd">@GrabResolver</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">=</span><span class="s">&quot;http://pease.github.com/maven/&quot;</span><span class="o">)</span>
+<span class="nd">@Grab</span><span class="o">(</span><span class="n">group</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">module</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;0.1.0&quot;</span><span class="o">)</span>
+<span class="kn">import</span> <span class="nn">pease.gherkin.FeatureLoader</span>
+<span class="kn">import</span> <span class="nn">pease.groovy.StepLoader</span>
+<span class="kn">import</span> <span class="nn">pease.Configuration</span>
+
+<span class="n">def</span> <span class="n">featureFile</span> <span class="o">=</span> <span class="sc">&#39;&#39;&#39;</span>
+<span class="nl">Feature:</span> <span class="n">Addition</span>
+  <span class="nl">Scenario:</span> <span class="n">Add</span> <span class="n">two</span> <span class="n">numbers</span>
+    <span class="n">Given</span> <span class="n">I</span> <span class="n">have</span> <span class="n">entered</span> <span class="mi">50</span> <span class="n">into</span> <span class="n">the</span> <span class="n">calculator</span>
+    <span class="n">And</span> <span class="n">I</span> <span class="n">have</span> <span class="n">entered</span> <span class="mi">70</span> <span class="n">into</span> <span class="n">the</span> <span class="n">calculator</span>
+    <span class="n">When</span> <span class="n">I</span> <span class="n">press</span> <span class="n">add</span>
+    <span class="n">Then</span> <span class="n">the</span> <span class="n">result</span> <span class="n">should</span> <span class="n">be</span> <span class="mi">120</span> <span class="n">on</span> <span class="n">the</span> <span class="n">screen</span>
+<span class="sc">&#39;&#39;&#39;</span>
+
+<span class="n">def</span> <span class="n">stepDefinitionTree</span> <span class="o">=</span> <span class="n">StepLoader</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">loadFromString</span><span class="o">(</span><span class="sc">&#39;&#39;&#39;</span>
+  <span class="n">Before</span> <span class="o">{</span>                                                  <span class="c1">// line 2</span>
+    <span class="n">def</span> <span class="n">stack</span> <span class="o">=</span> <span class="o">[]</span>
+  <span class="o">}</span>
+
+  <span class="n">Given</span><span class="o">(~/</span><span class="n">I</span> <span class="n">have</span> <span class="n">entered</span> <span class="o">(.*)</span> <span class="n">into</span> <span class="n">the</span> <span class="n">calculator</span><span class="o">/)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">-&gt;</span>  <span class="c1">// line 6</span>
+    <span class="n">stack</span> <span class="o">&lt;&lt;</span> <span class="o">(</span><span class="n">n</span> <span class="n">as</span> <span class="kt">double</span><span class="o">)</span>
+  <span class="o">}</span>          
+
+  <span class="n">When</span><span class="o">(~/</span><span class="n">I</span> <span class="n">press</span> <span class="n">add</span><span class="o">/)</span> <span class="o">{</span>                                    <span class="c1">// line 10</span>
+    <span class="n">def</span> <span class="n">result</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">+</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span>
+  <span class="o">}</span>
+
+  <span class="n">Then</span><span class="o">(~/</span><span class="n">the</span> <span class="n">result</span> <span class="n">should</span> <span class="n">be</span> <span class="o">(.*)</span> <span class="n">on</span> <span class="n">the</span> <span class="n">screen</span><span class="o">/)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">-&gt;</span>   <span class="c1">// line 14</span>
+    <span class="n">result</span> <span class="o">==</span> <span class="o">(</span><span class="n">n</span> <span class="n">as</span> <span class="kt">double</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="sc">&#39;&#39;&#39;</span><span class="o">)</span>
+<span class="n">def</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Configuration</span><span class="o">()</span>
+
+<span class="n">FeatureLoader</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">loadFromString</span><span class="o">(</span><span class="n">featureFile</span><span class="o">)</span> <span class="err">\</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="o">{</span> <span class="n">it</span><span class="o">.</span><span class="na">compileSpock</span><span class="o">(</span><span class="n">stepDefinitionTree</span><span class="o">,</span> <span class="n">config</span><span class="o">)</span> <span class="o">}</span> <span class="err">\</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="o">{</span> <span class="n">println</span> <span class="n">it</span> <span class="o">}</span>
+</code></pre>
+</div>
 
     </div>
   </div>
-  </section>
-</div>
-<!-- Generated: Wed Sep 07 16:55:44 +0200 2011 -->
+</section>
 
     </div>
     <script type='text/javascript'>
@@ -123,4 +200,4 @@
     </script>
   </body>
 </html>
-<!-- Generated: Wed Sep 07 16:55:44 +0200 2011 -->
+<!-- Generated: Wed Sep 07 17:02:38 +0200 2011 -->
