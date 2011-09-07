@@ -1,47 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
     <title>pease</title>
-    <link rel="stylesheet" href="bootstrap-1.0.0.min.css">
-    <style type="text/css">
-      h1 span { text-decoration:underline; }
-      body { color:black; }
-      h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { color:#666; }
-      .page-header { border-bottom-color: #333; }
-    </style>
+    <link href='/css/bootstrap-custom.min.css' rel='stylesheet' />
   </head>
-
   <body>
-    <div class="container">
-      <section>
-        <div class="page-header">
-          <h1>
-            pease
-            <small>
-              <span>pe</span>ase
-              <span>a</span>cceptance testing
-              <span>s</span>pock
-              <span>e</span>xtension
-            </small>
-          </h1>
+    <a href='http://github.com/pease' id='github'><img alt="Fork me on GitHub" src="/images/github_ribbon.png" /></a>
+    <div class='topbar'>
+      <div class='fill'>
+        <div class='container'>
+          <h3>
+            <a href='/'>Pease</a>
+          </h3>
+          <ul>
+            <li class=''>
+              <a href='/faq.html'>FAQ</a>
+            </li>
+            <li class=''>
+              <a href='/develop.html'>Contribute</a>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-          <div class="span16 columns">
-            <p>The source code will be <a href="https://www.github.com/pease/pease-core/">available</a> soon.</p>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
+    <div class='container' id='content'>
+      <header>
+  <div class="container">
+    <h1>
+      pease
+    </h1>
+    <p>
+        <span>pe</span>ase
+        <span>a</span>cceptance testing
+        <span>s</span>pock
+        <span>e</span>xtension
+    </p>
   </div>
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-25296848-1']);
-    _gaq.push(['_trackPageview']);
+</header>
+<div class="container">
+  <section id="code">
+    <div class="page-header">
+      <h1>Example</h1>
+    </div>
+    <div class="row">
+      <div class="span8 columns">
+        <h3>Specification in Gherkin <small>a business readable DSL</small></h3>
+<div class="highlight"><pre><code class="cucumber"><span class="k">Feature:</span><span class="nf"> Addition</span>
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Add two numbers</span>
+<span class="k">    Given </span><span class="nf">I have entered </span><span class="s">50</span><span class="nf"> into the calculator</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">I have entered </span><span class="s">70</span><span class="nf"> into the calculator</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I press add</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">the result should be </span><span class="s">120</span><span class="nf"> on the screen</span>
+</code></pre>
+</div>
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+      </div>
+
+      <div class="span8 columns">
+        <h3>Step definitions in Groovy <small>with Spock code inside the closures</small></h3>
+
+<div class="highlight"><pre><code class="java"><span class="n">Before</span> <span class="o">{</span>
+  <span class="n">def</span> <span class="n">calc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">Given</span><span class="o">(~/</span><span class="n">I</span> <span class="n">have</span> <span class="n">entered</span> <span class="o">(.*)</span> <span class="n">into</span> <span class="n">the</span> <span class="n">calculator</span><span class="o">/)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">-&gt;</span>
+  <span class="n">calc</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">n</span> <span class="n">as</span> <span class="kt">double</span><span class="o">)</span>
+<span class="o">}</span>          
+
+<span class="n">When</span><span class="o">(~/</span><span class="n">I</span> <span class="n">press</span> <span class="n">add</span><span class="o">/)</span> <span class="o">{</span>
+  <span class="n">calc</span><span class="o">.</span><span class="na">add</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">Then</span><span class="o">(~/</span><span class="n">the</span> <span class="n">result</span> <span class="n">should</span> <span class="n">be</span> <span class="o">(.*)</span> <span class="n">on</span> <span class="n">the</span> <span class="n">screen</span><span class="o">/)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">-&gt;</span>
+  <span class="n">calc</span><span class="o">.</span><span class="na">result</span> <span class="o">==</span> <span class="n">n</span> <span class="n">as</span> <span class="kt">double</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+    </div>
+    <div class="row">
+      <div class="span16 columns">
+      <h3>Generated spock test <small>either you get this or a compiled JUnit test class</small></h3>
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">Addition</span> <span class="kd">extends</span> <span class="n">spock</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Specification</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="s">&quot;add two numbers&quot;</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">def</span> <span class="n">calc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="o">()</span>
+
+    <span class="nl">given:</span> <span class="s">&quot;I have entered 50 into the calculator&quot;</span>
+    <span class="n">calc</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">&quot;50&quot;</span> <span class="n">as</span> <span class="kt">double</span><span class="o">)</span>
+
+    <span class="nl">and:</span> <span class="s">&quot;I have entered 70 into the calculator&quot;</span>
+    <span class="n">calc</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">&quot;70&quot;</span> <span class="n">as</span> <span class="kt">double</span><span class="o">)</span>
+
+    <span class="nl">when:</span> <span class="s">&quot;I press add&quot;</span>
+    <span class="n">calc</span><span class="o">.</span><span class="na">add</span><span class="o">()</span>
+
+    <span class="nl">then:</span> <span class="s">&quot;the result should be 120 on the screen&quot;</span>
+    <span class="n">calc</span><span class="o">.</span><span class="na">result</span> <span class="o">==</span> <span class="s">&quot;120&quot;</span> <span class="n">as</span> <span class="kt">double</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+    </div>
+  </div>
+  </section>
+</div>
+<!-- Generated: Wed Sep 07 16:55:44 +0200 2011 -->
+
+    </div>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-25296848-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
     </script>
   </body>
 </html>
+<!-- Generated: Wed Sep 07 16:55:44 +0200 2011 -->

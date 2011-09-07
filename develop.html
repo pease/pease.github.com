@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>pease development</title>
+    <link href='/css/bootstrap-custom.min.css' rel='stylesheet' />
+  </head>
+  <body>
+    <a href='http://github.com/pease' id='github'><img alt="Fork me on GitHub" src="/images/github_ribbon.png" /></a>
+    <div class='topbar'>
+      <div class='fill'>
+        <div class='container'>
+          <h3>
+            <a href='/'>Pease</a>
+          </h3>
+          <ul>
+            <li class=''>
+              <a href='/faq.html'>FAQ</a>
+            </li>
+            <li class='active'>
+              <a href='/develop.html'>Contribute</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class='container' id='content'>
+      <div class='row'>
+  <div class='page-header'>
+    <h2>Architecture</h2>
+  </div>
+  <div class='columns span8'>
+    <h3>Packages</h3>
+    <dl>
+      <dt>pease.gherkin</dt>
+      <dd>All classes that implement the support for the <a href="https://github.com/cucumber/gherkin/">Gherkin</a> parser.</dd>
+      <dt>pease.gherkin.model</dt>
+      <dd>The Gherkin tree that is used within Pease to generate the Spock test class.</dd>
+      <dt>pease.groovy</dt>
+      <dd>Parts of Pease that deal with the Groovy AST manipulation.</dd>
+      <dt>pease.groovy.model</dt>
+      <dd>Data types that are used during the Groovy AST manipulation.</dd>
+      <dt>pease.spock</dt>
+      <dd><a href="http://spockframework.org/">Spock framework</a> related classes.</dd>
+    </dl>
+  </div>
+</div>
+
+    </div>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-25296848-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>
+<!-- Generated: Wed Sep 07 16:55:44 +0200 2011 -->
