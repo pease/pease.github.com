@@ -142,8 +142,12 @@
       This demonstration is here to show you what kind of magic is involved.</p>
       
       <p><strong>Note:</strong> The maven repository is not live yet!</p>
-      <div class="highlight"><pre><code class="java"><span class="nd">@GrabResolver</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">=</span><span class="s">&quot;http://pease.github.com/maven/&quot;</span><span class="o">)</span>
-<span class="nd">@Grab</span><span class="o">(</span><span class="n">group</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">module</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;0.1.0&quot;</span><span class="o">)</span>
+      <div class="highlight"><pre><code class="java"><span class="nd">@Grapes</span><span class="o">([</span>
+  <span class="nd">@GrabResolver</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">=</span><span class="s">&quot;http://pease.github.com/maven/&quot;</span><span class="o">),</span>
+  <span class="nd">@GrabResolver</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;cukes&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">=</span><span class="s">&quot;http://cukes.info/maven/&quot;</span><span class="o">),</span>
+  <span class="nd">@Grab</span><span class="o">(</span><span class="n">group</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">module</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;0.1.0&quot;</span><span class="o">)</span>
+<span class="o">])</span>
+
 <span class="kn">import</span> <span class="nn">pease.gherkin.FeatureLoader</span>
 <span class="kn">import</span> <span class="nn">pease.groovy.StepLoader</span>
 <span class="kn">import</span> <span class="nn">pease.Configuration</span>
