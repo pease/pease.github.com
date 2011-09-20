@@ -146,14 +146,17 @@
       All dependencies are automatically resolved using <a href="http://groovy.codehaus.org/Grape">Grape</a>.
       Just copy and paste the script into your <code>groovyConsole</code> and execute it.</p>
       
-      <p>Things you could try:
-      Change the feature file by modifying the <code>featureFile</code> variable.
-      Adjust the regular expressions of the step definitions by editing the <code>stepDefinitionTree</code> variable.
-      Try what happens when a step without matching step definition is present.</p>
+      <p>Things you could try:</p>
+      
+      <ul>
+      <li>Change the feature file by modifying the <code>featureFile</code> variable.</li>
+      <li>Adjust the regular expressions of the step definitions by editing the <code>stepDefinitionTree</code> variable.</li>
+      <li>Try what happens when a step without matching step definition is present.</li>
+      </ul>
       <div class="highlight"><pre><code class="java"><span class="nd">@Grapes</span><span class="o">([</span>
   <span class="nd">@GrabResolver</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">=</span><span class="s">&quot;http://pease.github.com/maven/&quot;</span><span class="o">),</span>
   <span class="nd">@GrabResolver</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;cukes&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">=</span><span class="s">&quot;http://cukes.info/maven/&quot;</span><span class="o">),</span>
-  <span class="nd">@Grab</span><span class="o">(</span><span class="n">group</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">module</span><span class="o">=</span><span class="s">&quot;pease&quot;</span><span class="o">,</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;0.1.0&quot;</span><span class="o">)</span>
+  <span class="nd">@Grab</span><span class="o">(</span><span class="s">&quot;pease:pease:0.1.0&quot;</span><span class="o">)</span>
 <span class="o">])</span>
 
 <span class="kn">import</span> <span class="nn">pease.gherkin.FeatureLoader</span>
